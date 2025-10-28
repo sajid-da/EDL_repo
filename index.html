@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essentials of Deep Learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/"
+      }
+    }
+  </script>
+  <script type="module" src="index.tsx"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000000;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .text-gold-glow {
+        color: #FFD700;
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #B8860B, 0 0 30px #B8860B;
+    }
+    .animate-shimmer {
+        animation: shimmer 3s infinite linear;
+    }
+    .animate-draw-line {
+        animation: drawLine 1s ease-out forwards;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    .animate-border-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .animate-border-shimmer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(transparent, rgba(255, 215, 0, 0.4), transparent 30%);
+      animation: rotate 4s linear infinite;
+    }
+    
+    @keyframes rotate {
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes shimmer {
+        0% { opacity: 0.7; text-shadow: 0 0 5px #FFD700, 0 0 10px #B8860B; }
+        50% { opacity: 1; text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #B8860B; }
+        100% { opacity: 0.7; text-shadow: 0 0 5px #FFD700, 0 0 10px #B8860B; }
+    }
+    @keyframes drawLine {
+        to { stroke-dashoffset: 0; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    .animate-fade-in-delay-1 { animation: fadeIn 1s 1s ease-in-out forwards; opacity: 0; }
+    .animate-fade-in-delay-2 { animation: fadeIn 1s 2s ease-in-out forwards; opacity: 0; }
+    .animate-fade-in-delay-3 { animation: fadeIn 1s 3s ease-in-out forwards; opacity: 0; }
+    .animate-fade-in-delay-4 { animation: fadeIn 1s 4s ease-in-out forwards; opacity: 0; }
+    .animate-fade-in-delay-5 { animation: fadeIn 1s 5s ease-in-out forwards; opacity: 0; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <div id="root"></div>
+</body>
+</html>
